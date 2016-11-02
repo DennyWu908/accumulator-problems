@@ -25,11 +25,13 @@ Write function named sum that will take an array of numbers and return the sum o
 Example: if you pass it [1,2,3] then it should return 6 (which is 1 + 2 + 3)
 */
 
-
-
-
-
-
+function sum(numArray) {
+	var added = 0;
+	for (i = 0; i < numArray.length; i++) {
+		added += numArray[i];
+	}
+	return added;
+}
 
 
 
@@ -43,7 +45,13 @@ Write function named doubleNumbers that will take an array of numbers and return
 Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
-
+function doubleNumbers(numInput) {
+	var result = [];
+	for (i = 0; i < numInput.length; i++) {
+		result.push(numInput[i] * 2)
+	}
+	return result;
+}
 
 
 
@@ -65,7 +73,13 @@ Examples:
 - if you call multiplyNumbers([1,2,3], 5) you'd get [5,10,15]
 */
 
-
+function multiplyNumbers(array, multiplier) {
+	var result = [];
+	for (i = 0; i < array.length; i++) {
+		result.push(array[i] * multiplier)
+	}
+	return result;
+}
 
 
 
@@ -83,7 +97,13 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
-
+function doubleLetters(string) {
+	var result = "";
+	for (i = 0; i < string.length; i++) {
+		result += (string[i] + string[i])
+	}
+	return result;
+}
 
 
 
@@ -104,7 +124,14 @@ Example: if you pass it ["a", "b", "c"] and ["d", "e", "f"] then it should retur
 NOTE: you can assume each input will be the same length
 */
 
-
+function interleave(array1, array2) {
+	var result = [];
+	for (i = 0; i < array1.length; i++) {
+		result.push(array1[i]);
+		result.push(array2[i]);
+	}
+	return result;
+}
 
 
 
@@ -124,7 +151,13 @@ Write function named createRange that will take a number and a default value and
 Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "Hello", "Hello"]
 */
 
-
+function createRange(times, value) {
+	var result = [];
+	for (i = 0; i < times; i++) {
+		result.push(value);
+	}
+	return result;
+}
 
 
 
@@ -143,7 +176,13 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 
-
+function flipArray(array) {
+	var result = {};
+	for (i = 0; i < array.length; i++) {
+		result.array[i] = i
+	}
+	return result;
+}
 
 
 
