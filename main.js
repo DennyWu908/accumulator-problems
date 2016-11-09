@@ -179,8 +179,8 @@ If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "br
 function flipArray(array) {
 	var result = {};
 	for (i = 0; i < array.length; i++) {
-		result.array[i] = i
-	}
+		result[array[i]] = i
+	};
 	return result;
 }
 
@@ -202,7 +202,13 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 
 */
 
-
+function arraysToObject(array) {
+	var result = {};
+	for (i = 0; i < array.length; i++) {
+		result[array[i][0]] = array[i][1]
+	};
+	return result;
+}
 
 
 
@@ -222,7 +228,13 @@ Example:
 If you pass it "hello" then it should return "olleh"
 */
 
-
+function reverseString(string) {
+	var result = "";
+	for (i = string.length - 1; i >= 0; i--) {
+		result += string[i]
+	}
+	return result;
+}
 
 
 
@@ -247,7 +259,17 @@ If you pass it "yay" then it should return false because it's odd
 If you pass it "heehaw" then it should return false because "hee" doesn't equal "haw"
 */
 
-
+function repeats(string) {
+	var result = true;
+	var firstHalf = string.slice(0, (string.length / 2))
+	var secondHalf = string.slice((string.length / 2), string.length)
+	if (string.length % 2 != 0) {
+		return false
+	} else {
+		result = firstHalf === secondHalf
+	}
+	return result
+}
 
 
 
@@ -266,7 +288,13 @@ Example:
 If you pass it "abcdef" then it should return "ace" because those represent every other letter
 */
 
-
+function everyOther(string) {
+	var result = "";
+	for (i = 0; i < string.length; i+=2) {
+		result += string[i]
+	}
+	return result
+}
 
 
 
@@ -286,7 +314,12 @@ If you pass "aaa" it should return true
 If you pass "aba" it should return false
 */
 
-
+function allEqual(string) {
+	var result = true;
+	for (var i = 0; i < string.length; i++) {
+		string[i]
+	};
+}
 
 
 
