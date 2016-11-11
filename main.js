@@ -315,10 +315,17 @@ If you pass "aba" it should return false
 */
 
 function allEqual(string) {
-	var result = true;
-	for (var i = 0; i < string.length; i++) {
-		string[i]
+	var result = 0;
+	for (var i = 1; i < string.length; i++) {
+		if (string[i] == string [i-1]) {
+			result++
+		}
 	};
+	if (result == (string.length - 1) || string.length == 0) {
+		return true
+	} else {
+		return false
+	}
 }
 
 
@@ -339,7 +346,13 @@ If you pass "45" it should return 9
 If you pass "246" it should return 10
 */
 
-
+function sumLetters(string) {
+	var result = 0;
+	for (var i = 0; i < string.length; i++) {
+		result += parseInt(string[i])
+	}
+	return result
+}
 
 
 
@@ -358,7 +371,15 @@ Example:
 If you pass "you" it should return 2
 */
 
-
+function countVowels(string) {
+	var result = 0;
+	for (i = 0; i < string.length; i++) {
+		if (string[i] == "a" || string[i] == "e" || string[i] == "i" || string[i] == "o" || string[i] == "u") {
+			result++
+		}
+	}
+	return result
+}
 
 
 
@@ -381,7 +402,13 @@ If you pass "you" it should return ["y", "o", "u"]
 NOTE: do not use the builtin `split` method
 */
 
-
+function split(string) {
+	var result = [];
+	for (i = 0; i < string.length; i++) {
+		result.push(string[i])
+	}
+	return result
+}
 
 
 
@@ -402,7 +429,13 @@ Example:
 If you pass "Hello" it should return [ 72, 101, 108, 108, 111 ]
 */
 
-
+function getCodePoints(string) {
+	var result = [];
+	for (i = 0; i < string.length; i++) {
+		result.push(string.codePointAt(i))
+	}
+	return result
+}
 
 
 
@@ -422,7 +455,13 @@ If you pass "Yo" it should return {Y: 0, o: 1}
 If you pass "Hello" it should return {H: 0, e: 1, l: 3, o: 4}
 */
 
-
+function letterMap(string) {
+	var result = {};
+	for (i = 0; i < string.length; i++) {
+		result[string[i]] = i
+	}
+	return result
+}
 
 
 
@@ -442,7 +481,17 @@ If you pass "Yo" it should return {Y: 1, o: 1}
 If you pass "Hello" it should return {"H": 1, "e": 1, "l": 2, "o": 1}
 */
 
-
+// function letterCount(string) {
+// 	var result = {};
+// 	var objValue = 1
+// 	for (i = 0; i < string.length; i++) {
+// 		result[string[i]] = objValue;
+// 	}
+// 	for (var key in object) {
+// 		var value = object[key];		
+// 	};
+// 	return result
+// }
 
 
 
@@ -463,7 +512,19 @@ If you pass 0,2 it should return false because the only number between 0 and 2 i
 If you pass 0,6 it should return true because between 0 and six (the numbers 1,2,3,4,5) there are three odds - 1, 3 and 5
 */
 
-
+function threeOdds(int1, int2) {
+	var result = 0;
+	for (i = int1 + 1; i < int2; i++) {
+		if (i % 2 != 0) {
+			result++
+		}
+	}
+	if (result >= 3) {
+		return true
+	} else {
+		return false
+	}
+}
 
 
 
@@ -484,7 +545,17 @@ Example:
 If you pass "a", 3, "*" it should return "**a" - that is, a string of length 3, padded on the left by the "*" character
 */
 
-
+function leftPad(string, length, fill) {
+	var result = "";
+	if (string.length >= length) {
+		return string
+	} else if (string.length < length) {
+		for (i = string.length; i < length; i++) {
+			result += fill
+		}
+		return result += string
+	}
+}
 
 
 
@@ -504,7 +575,13 @@ If you pass "a", 3 it should return "aaa"
 If you pass "b", 3 it should return "bb"
 */
 
-
+function createString(number, letter) {
+	var result = "";
+	for (i = 0; i < number; i++) {
+		result += letter
+	}
+	return result
+}
 
 
 
@@ -526,7 +603,13 @@ If you pass 4 it should return 24 since that's 4 * 3 * 2 * 1
 If you pass 5 it should return 120 since that's 5 * 4 * 3 * 2 * 1
 */
 
-
+function factorial(number) {
+	var result = 1;
+	for (i = number; i > 0; i--) {
+		result *= i
+	}
+	return result
+}
 
 
 
