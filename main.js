@@ -629,7 +629,13 @@ If you pass 1 it should return [1]
 If you pass 3 it should return [1,2,3]
 */
 
-
+function arrayOfNumbers(number) {
+	var result = [];
+	for (i = 1; i <= number; i++) {
+		result.push(i)
+	}
+	return result
+}
 
 
 
@@ -648,7 +654,20 @@ Example:
 If you pass 1,4 it should return {"1": "odd", "2": "even", "3": "odd", "4": "even"}
 */
 
-
+function evenOdd(number1, number2) {
+	var result = {};
+	if (number1 == 0 && number2 == 0) {
+		return result
+	}
+	for (i = number1; i <= number2; i++) {
+		if (i % 2 == 0) {
+			result[i] = "even"
+		} else {
+			result[i] = "odd"
+		}
+	};
+	return result
+}
 
 
 
@@ -668,7 +687,17 @@ Example:
 If you pass 2,"d" it should return {"d": true, "dd": true}
 */
 
-
+function growingKeys(number, string) {
+	var result = {};
+	if (number == 0) {
+		return result
+	}
+	for (i = 1; i <= number; i++) {
+		var key = string.repeat(i);
+		result[key] = true
+	}
+	return result
+}
 
 
 
