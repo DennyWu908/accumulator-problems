@@ -481,17 +481,17 @@ If you pass "Yo" it should return {Y: 1, o: 1}
 If you pass "Hello" it should return {"H": 1, "e": 1, "l": 2, "o": 1}
 */
 
-// function letterCount(string) {
-// 	var result = {};
-// 	var objValue = 1
-// 	for (i = 0; i < string.length; i++) {
-// 		result[string[i]] = objValue;
-// 	}
-// 	for (var key in object) {
-// 		var value = object[key];		
-// 	};
-// 	return result
-// }
+function letterCount(string) {
+	var result = {};
+	var objValue = 1
+	for (i = 0; i < string.length; i++) {
+		result[string[i]] = objValue;
+	}
+	for (var key in object) {
+		var value = object[key];		
+	};
+	return result
+}
 
 
 
@@ -719,7 +719,19 @@ If you pass [1,1], 1 it should return true
 If you pass [1,2], 1 it should return false
 */
 
-
+function every(array, value) {
+	var result = 0;
+	for (i = 0; i < array.length; i++) {
+		if (array[i] == value) {
+			result++
+		}
+	}
+	if (result == array.length) {
+		return true
+	} else {
+		return false
+	}
+}
 
 
 
@@ -739,7 +751,19 @@ If you pass [1,2], 1 it should return true
 If you pass [3,2], 1 it should return false
 */
 
-
+function some(array, value) {
+	var result = 0;
+	for (i = 0; i < array.length; i++) {
+		if (array[i] == value) {
+			result++
+		}
+	}
+	if (result >= 1) {
+		return true
+	} else {
+		return false
+	}
+}
 
 
 
@@ -759,7 +783,19 @@ If you pass ["Sue", "Will"] it should return "Sue and Will"
 If you pass ["Sue", "Will", "Rachel"] it should return "Sue, Will and Rachel"
 */
 
-
+function toSentence(array) {
+	var result = "";
+	var secondLast = array.length - 2
+	var last = array.length - 1
+	for (i = 0; i < array.length; i++) {
+		if (i <= secondLast) {
+			result += (array[i] + ", ")
+		} else if (i == last) {
+			result += ("and " + array[i])
+		}
+	}
+	return result
+}
 
 
 
@@ -784,7 +820,13 @@ If you pass ["Sue", "Will"] it should return "SW"
 If you pass ["Java", Script", "Object", "Notation"] it should return "JSON"
 */
 
-
+function acronym(array) {
+	var result = "";
+	for (i = 0; i < array.length; i++) {
+		result += array[i][0]
+	}
+	return result
+}
 
 
 
@@ -803,7 +845,15 @@ Example:
 If you pass [0,-3,2,5] it should return -3
 */
 
-
+function min(array) {
+	var result = array[0];
+	for (i = 0; i < array.length; i++) {
+		if (array[i] <= result) {
+			result = array[i]
+		}
+	}
+	return result
+}
 
 
 
@@ -826,7 +876,13 @@ If you pass [{id: 1, name: "Joe"}, {id: 2, name: "Sue"}] it should return {1: {i
 
 */
 
-
+function index(array, property) {
+	var result = {};
+	for (i = 1; i <= array.length; i++) {
+		result[array[i].property] = array[i]
+	}
+	return result
+}
 
 
 
@@ -845,7 +901,14 @@ Example:
 If you pass {id: 1, name: "Joe"} it should return {1: "id", Joe: "name"}
 */
 
-
+function invert(object) {
+	var result = {};
+	for (var key in object) {
+		var value = object[key];
+		result[value] = key
+	}
+	return result
+}
 
 
 
@@ -867,7 +930,14 @@ Example:
 If you pass {"contract": "foo"}, "Fred" it should return {"contract-signed": "foo - Fred"}
 */
 
-
+function addSignature(object, name) {
+	var result = {};
+	for (var key in object) {
+		var value = object[key];
+		result[key + "-signed"] = value + " - " + name
+	}
+	return result
+}
 
 
 
@@ -886,7 +956,14 @@ Example:
 If you pass {name: "Will", age: 24} it should return ["name - will", "age - 24"]
 */
 
-
+function pairs(object) {
+	var result = [];
+	for (var key in object) {
+		var value = object[key];
+		result.push(key + " - " + value)
+	}
+	return result
+}
 
 
 
@@ -905,7 +982,14 @@ Example:
 If you pass {a: 1, b: 2} it should return 3
 */
 
-
+function sumValues(object) {
+	var result = 0;
+	for (var key in object) {
+		var value = object[key];
+		result += value
+	}
+	return result
+}
 
 
 
@@ -924,7 +1008,17 @@ Example:
 If you pass {1999: 4036, 2000: 7654} it should return '2000'
 */
 
-
+function biggestProperty(object) {
+	var result = 0;
+	for (var key in object) {
+		var value = object[key];
+		result += key
+		if (value >= object[key]) {
+			result = key
+		}
+	}
+	return result
+}
 
 
 
@@ -949,7 +1043,18 @@ Example:
 If you pass {1999: 4036, 2000: 7654} and 4036, it should return '1999'
 */
 
-
+function keyForValue(object, wantValue) {
+	var result = "";
+	for (var key in object) {
+		var value = object[key];
+		if (object == {}) {
+			return undefined
+		} else if (value == wantValue) {
+			result += key
+		}
+	}
+	return result
+}
 
 
 
@@ -970,7 +1075,16 @@ Example:
 If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 */
 
-
+function containsValue(object, soughtValue) {
+	for (var key in object) {
+		var value = object[key];
+		if (object == {}) {
+			return false
+		} else if (value == soughtValue) {
+			return true
+		}
+	}
+}
 
 
 
