@@ -934,7 +934,9 @@ function addSignature(object, name) {
 	var result = {};
 	for (var key in object) {
 		var value = object[key];
-		result[key + "-signed"] = value + " - " + name
+		var withSignature = key + "-signed"
+		var withName = value + " - " + name
+		result[withSignature] = withName
 	}
 	return result
 }
@@ -1009,15 +1011,18 @@ If you pass {1999: 4036, 2000: 7654} it should return '2000'
 */
 
 function biggestProperty(object) {
-	var result = 0;
+	var bigKey = undefined;
+	var bigValue = undefined
 	for (var key in object) {
 		var value = object[key];
-		result += key
-		if (value >= object[key]) {
-			result = key
+		if (!bigValue) {
+			bigValue = value
+		} else if (bigValue < object[key]) {
+			bigValue = object[key]
+			bigKey = key
 		}
 	}
-	return result
+	return bigKey
 }
 
 
@@ -1044,13 +1049,11 @@ If you pass {1999: 4036, 2000: 7654} and 4036, it should return '1999'
 */
 
 function keyForValue(object, wantValue) {
-	var result = "";
+	var result = undefined;
 	for (var key in object) {
 		var value = object[key];
-		if (object == {}) {
-			return undefined
-		} else if (value == wantValue) {
-			result += key
+		if (value == wantValue) {
+			result = key
 		}
 	}
 	return result
@@ -1076,14 +1079,14 @@ If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 */
 
 function containsValue(object, soughtValue) {
+	var result = false;
 	for (var key in object) {
 		var value = object[key];
-		if (object == {}) {
-			return false
-		} else if (value == soughtValue) {
-			return true
+		if (value == soughtValue) {
+			result = true
 		}
 	}
+	return result
 }
 
 
