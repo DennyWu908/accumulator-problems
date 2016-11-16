@@ -878,8 +878,8 @@ If you pass [{id: 1, name: "Joe"}, {id: 2, name: "Sue"}] it should return {1: {i
 
 function index(array, property) {
 	var result = {};
-	for (i = 1; i <= array.length; i++) {
-		result[array[i].property] = array[i]
+	for (i = 0; i < array.length; i++) {
+		result[array[i][property]] = array[i]
 	}
 	return result
 }
@@ -930,7 +930,7 @@ Example:
 If you pass {"contract": "foo"}, "Fred" it should return {"contract-signed": "foo - Fred"}
 */
 
-function addSignature(object, name) {
+function addSignature(name, object) {
 	var result = {};
 	for (var key in object) {
 		var value = object[key];
